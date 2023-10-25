@@ -107,8 +107,6 @@ def app():
                 
     st.button('New Customer', on_click=open_page, args=('https://forms.gle/QRZsJbomMPivZYPZ9',))
 
-    if st.button("Contact Us"):
-                st.write("Email: example@email.com")
-                st.write("Phone: +1-123-456-7890")
+    
 
   
