@@ -1,6 +1,7 @@
 import streamlit as st
-from PIL import Image
 from streamlit.components.v1 import html
+import joblib
+import pandas as pd
 def app():
     def open_page(url):
         open_script= """
@@ -53,15 +54,15 @@ def app():
     with col2:
             
             # Define your 9 drop-down menus for the left column with labels to the left
-        age = st.selectbox("", ["Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75 and over"])
-        type_of_contact = st.selectbox("", ["company invited", "self-invited"])
-        city_tier = st.selectbox("", ["Tier 1", "Tier 2", "Tier 3"])
+        age = st.selectbox("", [18, "18-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75 and over"])
+        owncar = st.selectbox("    ", list(range(0,2)))
+        city_tier = st.selectbox("", list(range(1, 4)))
         occupation = st.selectbox("", ["Free lancer", "Salaried", "Small Business", "Large Business"])
-        gender = st.selectbox("", ["Male", "Female"])
-        duration_of_pitch = st.selectbox("", ["< 15 minutes", "15-30 minutes", "30-45 minutes", "> 45 minutes"])
-        number_of_people = st.selectbox("", list(range(1, 11)))
+        insurance = st.selectbox("     ", list(range(0, 2)))
+        duration_of_pitch = st.selectbox("", [15, "15-30 minutes", "30-45 minutes", "> 45 minutes"])
+        number_of_people = st.selectbox("      ", list(range(1, 11)))
         product_pitched = st.selectbox("", ["basic", "deluxe", "king", "standard", "super deluxe"])
-        number_of_followups = st.selectbox("", list(range(0, 6)))
+        number_of_followups = st.selectbox("       ", list(range(0, 6)))
     with col1:
             st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Age</h1>", unsafe_allow_html=True)
             st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Type of Contact</h1>", unsafe_allow_html=True)
@@ -86,24 +87,65 @@ def app():
     with col4:
             # Define the remaining 9 drop-down menus for the right column with labels to the left
             marital_status = st.selectbox("", ["Single", "Married", "Divorced", "Unmarried"])
-            passport = st.selectbox("", ["Yes", "No"])
+            passport = st.selectbox("           ", list(range(0, 2)))
             number_of_trips = st.selectbox("", list(range(0, 11)))
             designation = st.selectbox("", ["Manager", "AVP", "Executive","VP","Senior Manager"])
             pitch_satisfaction_score = st.selectbox("", list(range(1, 6)))
-            annual_income = st.selectbox("", ["< $25,000", "$25,000 - $50,000", "$50,000 - $75,000", "> $75,000"])
+            annual_income = st.selectbox("", [25,000, "$25,000 - $50,000", "$50,000 - $75,000", "> $75,000"])
             number_of_children = st.selectbox(" ", list(range(0, 6)))
             preferred_property_star = st.selectbox("  ", list(range(1, 6)))
             rating_by_sales_person = st.selectbox("   ", list(range(1, 6)))
+            
+    Age = age
+    CityTier = city_tier
+    DurationOfPitch = duration_of_pitch
+    NumberOfPersonVisiting = number_of_people
+    NumberOfFollowups = number_of_followups
+    ProductPitched = product_pitched
+    PreferredPropertyStar = preferred_property_star
+    MaritalStatus = marital_status
+    NumberOfTrips = number_of_trips
+    Passport = passport
+    PitchSatisfactionScore = pitch_satisfaction_score
+    NumberOfChildrenVisiting = number_of_children
+    Designation = designation
+    MonthlyIncome = annual_income
+    insurance = insurance
+    owncar = owncar
+    rating_by_sales_person = int(rating_by_sales_person)
 
-        # Submit button
-        
-    
+    df = pd.DataFrame(
+        {
+            "Age": [Age],
+            "CityTier": [CityTier],
+            "DurationOfPitch": [DurationOfPitch],
+            "NumberOfPersonVisiting": [NumberOfPersonVisiting],
+            "NumberOfFollowups": [NumberOfFollowups],
+            "ProductPitched": [ProductPitched],
+            "PreferredPropertyStar": [PreferredPropertyStar],
+            "MaritalStatus": [MaritalStatus],
+            "NumberOfTrips": [NumberOfTrips],
+            "Passport": [Passport],
+            "PitchSatisfactionScore": [PitchSatisfactionScore],
+            "NumberOfChildrenVisiting": [NumberOfChildrenVisiting],
+            "Designation": [Designation],
+            "MonthlyIncome": [MonthlyIncome],
+            "OwnCar": [owncar],
+            "insurance": [insurance]
+        }
+    )  
+
     
     if st.button("Submit"):
-                if rating_by_sales_person > 3:
-                    st.success("Customer will buy the product")
+                modal_log = joblib.load(r'models\logistic_model.sav')
+                x_cols = ['Age', 'CityTier', 'DurationOfPitch','NumberOfPersonVisiting', 'NumberOfFollowups',  'PreferredPropertyStar', 'NumberOfTrips', 'Passport', 'PitchSatisfactionScore', 'OwnCar', 'NumberOfChildrenVisiting',  'MonthlyIncome', 'insurance']
+                x = df[x_cols]
+                Result = modal_log.predict(x.values)
+                if Result[0]==1 and rating_by_sales_person > 3:
+                    st.success('Purchase')
                 else:
-                    st.error("Customer will not buy the product")
+                    st.error('Not Purchase')
+                
                 
     st.button('New Customer', on_click=open_page, args=('https://forms.gle/QRZsJbomMPivZYPZ9',))
 
