@@ -135,7 +135,7 @@ def app():
             "insurance": [insurance]
         }
     )  
-    os.chdir('/app/Travel_package_purchase_prediction/models')
+    os.chdir('/app/Travel_package_purchase_prediction/models/')
     
     if st.button("Submit"):
                 modal_log = joblib.load(r'models\logistic_model.sav')
