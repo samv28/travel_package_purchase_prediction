@@ -6,7 +6,7 @@ import os
 
 
 class MultiApp:
-
+    st.write(os.getcwd())
     def __init__(self):
         self.apps = []
 
