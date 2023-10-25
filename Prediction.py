@@ -4,7 +4,6 @@ import joblib
 import pandas as pd
 import os 
 def app():
-    st.write(os.path())
     def open_page(url):
         open_script= """
             <script type="text/javascript">
@@ -136,7 +135,7 @@ def app():
             "insurance": [insurance]
         }
     )  
-
+    os.chdir('/app/Travel_package_purchase_prediction/models')
     
     if st.button("Submit"):
                 modal_log = joblib.load(r'models\logistic_model.sav')
