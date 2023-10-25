@@ -2,7 +2,9 @@ import streamlit as st
 from streamlit.components.v1 import html
 import joblib
 import pandas as pd
+import os 
 def app():
+    st.write(os.path())
     def open_page(url):
         open_script= """
             <script type="text/javascript">
