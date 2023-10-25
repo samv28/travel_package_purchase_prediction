@@ -1,13 +1,8 @@
 import streamlit as st 
 from streamlit_option_menu import option_menu
 import  Prediction, contact,Introduction
-import os
-
-
 
 class MultiApp:
-    st.write(os.getcwd())
-    st.write(os.listdir())
     
     def __init__(self):
         self.apps = []
