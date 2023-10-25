@@ -2,6 +2,11 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import  Prediction, contact,Introduction
 
+st.set_page_config(
+    page_title="Travel Package Purchase Predictor",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 class MultiApp:
     
     def __init__(self):
