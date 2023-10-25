@@ -33,7 +33,7 @@ class MultiApp:
         "nav-link-selected": {"background-color": "#ff4b4b"},}
                 
             )
-        
+        st.write(os.getcwd())
         if app == "Introduction":
             Introduction.app()
         if app == "Prediction":
