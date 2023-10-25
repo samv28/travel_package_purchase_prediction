@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit.components.v1 import html
 import joblib
 import pandas as pd
-import os 
+
 def app():
     def open_page(url):
         open_script= """
@@ -135,7 +135,7 @@ def app():
             "insurance": [insurance]
         }
     )  
-    #os.chdir('/app/travel_package_purchase_prediction/models')
+    
     modal_log = joblib.load('logistic_model.sav')
     
     if st.button("Submit"):
