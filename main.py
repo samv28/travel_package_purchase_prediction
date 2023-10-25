@@ -7,6 +7,8 @@ import os
 
 class MultiApp:
     st.write(os.getcwd())
+    st.write(os.listdir())
+    
     def __init__(self):
         self.apps = []
 
@@ -18,7 +20,7 @@ class MultiApp:
         })
 
     def run():
-        os.write(os.listdir())
+        
         with st.sidebar:        
             app = option_menu(
                 menu_title='Main Menu ',
