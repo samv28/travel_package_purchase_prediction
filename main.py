@@ -3,12 +3,7 @@ from streamlit_option_menu import option_menu
 import  Prediction, contact,Introduction
 
 
-st.set_page_config(
-    page_title="Travel Package Purchase Prediction",
-    page_icon="🪖",
-    layout="wide",
-    initial_sidebar_state="collapsed"
-)
+
 
 class MultiApp:
 
