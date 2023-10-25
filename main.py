@@ -18,7 +18,7 @@ class MultiApp:
         })
 
     def run():
-        
+        os.write(os.listdir())
         with st.sidebar:        
             app = option_menu(
                 menu_title='Main Menu ',
