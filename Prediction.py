@@ -138,7 +138,7 @@ def app():
     os.chdir('/app/travel_package_purchase_prediction/models')
     
     if st.button("Submit"):
-                modal_log = joblib.load(r'models\logistic_model.sav')
+                modal_log = joblib.load('logistic_model.sav')
                 x_cols = ['Age', 'CityTier', 'DurationOfPitch','NumberOfPersonVisiting', 'NumberOfFollowups',  'PreferredPropertyStar', 'NumberOfTrips', 'Passport', 'PitchSatisfactionScore', 'OwnCar', 'NumberOfChildrenVisiting',  'MonthlyIncome', 'insurance']
                 x = df[x_cols]
                 Result = modal_log.predict(x.values)
