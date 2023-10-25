@@ -1,2 +1,2 @@
 streamlit
-webbrowser
+streamlit_option_menu
