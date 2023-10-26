@@ -66,10 +66,10 @@ def app():
         number_of_followups = st.selectbox("       ", list(range(0, 6)))
     with col1:
             st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Age</h1>", unsafe_allow_html=True)
-            st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Type of Contact</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Own Car</h1>", unsafe_allow_html=True)
             st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>City Tier</h1>", unsafe_allow_html=True)
             st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Occupation</h1>", unsafe_allow_html=True)
-            st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Gender</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Insurance</h1>", unsafe_allow_html=True)
             st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Duration of Pitch</h1>", unsafe_allow_html=True)
             st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Number of People</h1>", unsafe_allow_html=True)
             st.markdown("<h1 style='text-align: center; color: #FFF; font-family: Montaga;font-size: 40px;font-style: normal;font-weight: 400;line-height: normal;'>Product Pitched</h1>", unsafe_allow_html=True)
