@@ -20,7 +20,7 @@ class MultiApp:
         })
 
     def run():
-        logo_url = ('https://github.com/samv28/travel_package_purchase_prediction/blob/main/logo.png')
+        logo_url = ('https://ibb.co/ZHFS7QN')
         st.sidebar.image(logo_url)
         with st.sidebar:        
             app = option_menu(
