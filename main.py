@@ -20,7 +20,8 @@ class MultiApp:
         })
 
     def run():
-        
+        logo_url = ‘./logo.png’
+        st.sidebar.image(logo_url)
         with st.sidebar:        
             app = option_menu(
                 menu_title='Main Menu ',
