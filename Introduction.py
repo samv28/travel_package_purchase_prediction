@@ -8,6 +8,6 @@ def app():
     st.markdown("The travel business may increase income and acquire a competitive edge in the market by utilizing insights from consumer demographics, historical preferences, seasonal patterns, and marketing data.")
     
     st.markdown('<h2>Label Encoding</h2>', unsafe_allow_html=True)
-    st.markdown("Type of contact:  0 = company invited , 1 = self-invited.")
-    st.markdown("Gender: 0 = Female, 1 = Male")
+    st.markdown("Type of contact:  0 = No , 1 = Yes")
+    st.markdown("Insurance: 0 = No, 1 = Yes")
     st.markdown("Passport: 0 = No, 1 = Yes")
