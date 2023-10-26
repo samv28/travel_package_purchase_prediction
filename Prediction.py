@@ -55,12 +55,12 @@ def app():
     with col2:
             
             # Define your 9 drop-down menus for the left column with labels to the left
-        age = st.selectbox("", [18, "18-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75 and over"])
+        age = st.selectbox("", [18, 25, 35, 45, 55, 65, 75, 80])
         owncar = st.selectbox("    ", list(range(0,2)))
         city_tier = st.selectbox("", list(range(1, 4)))
         occupation = st.selectbox("", ["Free lancer", "Salaried", "Small Business", "Large Business"])
         insurance = st.selectbox("     ", list(range(0, 2)))
-        duration_of_pitch = st.selectbox("", [15, "15-30 minutes", "30-45 minutes", "> 45 minutes"])
+        duration_of_pitch = st.selectbox("", [15, 30 , 45])
         number_of_people = st.selectbox("      ", list(range(1, 11)))
         product_pitched = st.selectbox("", ["basic", "deluxe", "king", "standard", "super deluxe"])
         number_of_followups = st.selectbox("       ", list(range(0, 6)))
@@ -92,7 +92,7 @@ def app():
             number_of_trips = st.selectbox("", list(range(0, 11)))
             designation = st.selectbox("", ["Manager", "AVP", "Executive","VP","Senior Manager"])
             pitch_satisfaction_score = st.selectbox("", list(range(1, 6)))
-            annual_income = st.selectbox("", [25,000, "$25,000 - $50,000", "$50,000 - $75,000", "> $75,000"])
+            annual_income = st.selectbox("", [25000, 50000, 75000, 100000])
             number_of_children = st.selectbox(" ", list(range(0, 6)))
             preferred_property_star = st.selectbox("  ", list(range(1, 6)))
             rating_by_sales_person = st.selectbox("   ", list(range(1, 6)))
