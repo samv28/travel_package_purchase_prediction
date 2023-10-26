@@ -2,7 +2,11 @@ import streamlit as st
 from streamlit.components.v1 import html
 import joblib
 import pandas as pd
-
+st.set_page_config(
+    page_title="Travel Package Purchase Predictor",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 def app():
     def open_page(url):
         open_script= """
