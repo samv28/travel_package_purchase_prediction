@@ -143,7 +143,7 @@ def app():
         x_cols = ['Age', 'CityTier', 'DurationOfPitch','NumberOfPersonVisiting', 'NumberOfFollowups',  'PreferredPropertyStar', 'NumberOfTrips', 'Passport', 'PitchSatisfactionScore', 'OwnCar', 'NumberOfChildrenVisiting',  'MonthlyIncome', 'insurance']
         x = df[x_cols]
         Result = modal_log.predict(x.values)
-        if Result[0]==1 and rating_by_sales_person > 3:
+        if (Result[0]==1) and (rating_by_sales_person > 3):
            st.success('Purchase')
         else:
             st.error('Not Purchase')
